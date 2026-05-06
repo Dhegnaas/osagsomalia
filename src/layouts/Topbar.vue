@@ -27,7 +27,7 @@
         <!-- Right: socials + dark toggle + lang -->
         <div class="flex items-center gap-3">
           <a href="#" aria-label="Facebook"
-             class="opacity-80 bg-white/20 p-2 rounded-full hover:bg-[#ffd700] hover:opacity-100 transition-opacity">
+             class="opacity-80 bg-white/20 p-2 rounded-full hover:bg-[#ffd700] hover:text-black hover:opacity-100 transition-opacity">
             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
             </svg>
@@ -40,7 +40,7 @@
           </a>
 
           <button @click="toggleDark"
-                  class="opacity-80 bg-white/20 p-2 rounded-full hover:bg-[#ffd700] ring-2  ring-white/20  hover:opacity-100 transition-opacity focus:outline-none"
+                  class="opacity-80 bg-white/20 p-2 rounded-full hover:bg-[#ffd700] ring-2  ring-white/20 hover:text-black  hover:opacity-100 transition-opacity focus:outline-none"
                   :aria-label="isDark ? 'Light mode' : 'Dark mode'">
             <svg v-if="!isDark" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
@@ -146,20 +146,44 @@
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </a>
-            <ul class="absolute top-full left-0 mt-2 w-44 bg-white border border-gray-100
-                       rounded-xl shadow-lg py-1.5 list-none p-0
-                       opacity-0 invisible group-hover:opacity-100 group-hover:visible
-                       translate-y-1 group-hover:translate-y-0 transition-all duration-200 z-50">
-              <li><a href="/documents/reports"
-                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50
-                            hover:text-[#3e87d0] transition-colors no-underline">Reports</a></li>
-              <li><a href="/documents/publications"
-                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50
-                            hover:text-[#3e87d0] transition-colors no-underline">Publications</a></li>
-              <li><a href="/documents/gazettes"
-                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50
-                            hover:text-[#3e87d0] transition-colors no-underline">Gazettes</a></li>
-            </ul>
+         <ul class="absolute top-full left-0 mt-2 w-[480px] bg-white border border-gray-100
+           rounded-xl shadow-lg py-5
+           opacity-0 invisible group-hover:opacity-100 group-hover:visible
+           translate-y-1 group-hover:translate-y-0 transition-all duration-200 z-50">
+
+  <li class="flex gap-12 px-8">
+
+    <!-- Column 1 -->
+    <div class="flex-1">
+      <h1 class="text-[15px] font-semibold text-[#3e87d0] mb-3">
+        Legal Documents
+      </h1>
+
+      <ul class="space-y-2">
+        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Reports</a></li>
+        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Publications</a></li>
+        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Gazettes</a></li>
+      </ul>
+    </div>
+
+    <!-- Divider -->
+    <div class="w-px bg-gray-200"></div>
+
+    <!-- Column 2 -->
+    <div class="flex-1">
+      <h1 class="text-[15px] font-semibold text-[#3e87d0] mb-3">
+        Public Documents
+      </h1>
+
+      <ul class="space-y-2">
+        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Reports</a></li>
+        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Publications</a></li>
+        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Gazettes</a></li>
+      </ul>
+    </div>
+
+  </li>
+</ul>
           </li>
 
           <li v-for="link in simpleLinks" :key="link.href">
