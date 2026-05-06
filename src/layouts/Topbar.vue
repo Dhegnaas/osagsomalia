@@ -122,15 +122,21 @@
                        rounded-xl shadow-lg py-1.5 list-none p-0
                        opacity-0 invisible group-hover:opacity-100 group-hover:visible
                        translate-y-1 group-hover:translate-y-0 transition-all duration-200 z-50">
-              <li><a href="/about/overview"
+              <li><a href="/about"
                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50
-                            hover:text-[#3e87d0] transition-colors no-underline">Overview</a></li>
-              <li><a href="/about/mandate"
+                            hover:text-[#3e87d0] transition-colors no-underline">About Us</a></li>
+              <li><a href="/about/Attorney"
                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50
-                            hover:text-[#3e87d0] transition-colors no-underline">Mandate</a></li>
-              <li><a href="/about/leadership"
+                            hover:text-[#3e87d0] transition-colors no-underline">Attorney General</a></li>
+              <li><a href="/about/Services"
                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50
-                            hover:text-[#3e87d0] transition-colors no-underline">Leadership</a></li>
+                            hover:text-[#3e87d0] transition-colors no-underline">Services</a></li>
+            <li><a href="/about/Organizational"
+                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50
+                            hover:text-[#3e87d0] transition-colors no-underline">Organizational Structure</a></li>
+            <li><a href="/about/Organizational Us"
+                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50
+                            hover:text-[#3e87d0] transition-colors no-underline">Organizational Us</a></li>
             </ul>
           </li>
 
@@ -160,9 +166,11 @@
       </h1>
 
       <ul class="space-y-2">
-        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Reports</a></li>
-        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Publications</a></li>
-        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Gazettes</a></li>
+        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Legislation</a></li>
+        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Agreements</a></li>
+        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Cabinet decisions</a></li>
+        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Budget</a></li>
+        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Resolutions</a></li>
       </ul>
     </div>
 
@@ -176,9 +184,11 @@
       </h1>
 
       <ul class="space-y-2">
-        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Reports</a></li>
-        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Publications</a></li>
-        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Gazettes</a></li>
+        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Official Bullets</a></li>
+        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Bulletin Contents</a></li>
+        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Constitution</a></li>
+        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Tax Exemptions</a></li>
+        <li><a href="#" class="block px-2 py-1 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#3e87d0] rounded-md">Public Notices</a></li>
       </ul>
     </div>
 
