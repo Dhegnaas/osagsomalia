@@ -1,23 +1,31 @@
 <template>
-    <div>
-        <Topbar />
-         <router-view />
-        <Footer />
-    </div>
+  <div class="min-h-screen flex flex-col">
+    
+    <Topbar />
+
+    <!-- THIS grows -->
+    <main class="flex-1 w-full sm:px-6 lg:px-8">
+      <router-view />
+    </main>
+
+    <Footer />
+    
+  </div>
 </template>
 
 <script>
 import Topbar from './Topbar.vue'
 import Footer from './Footer.vue'
-    export default {
-        name: 'Index',
-        components: {
-            Topbar,
-            Footer
-        }
-    }
+
+export default {
+  name: 'Index',
+  components: {
+    Topbar,
+    Footer
+  }
+}
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+/* No custom SCSS needed! Tailwind handles the flexbox and constraints. */
 </style>
