@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 1. Hero Section -->
-    <section class="bg-[#1a365d] min-h-screen flex items-center justify-center relative overflow-hidden font-sans">
+    <section class="bg-[#1a365d] min-h-screen w-full border flex items-center justify-center relative font-sans">
       <!-- Background Overlay -->
       <div class="absolute inset-0 bg-gradient-to-br from-blue-900/90 to-blue-800/80 z-10"></div>
       
@@ -13,7 +13,7 @@
       />
 
       <!-- Main Content -->
-      <div class="container mx-auto px-6 relative z-20 text-white">
+      <div class=" relative z-20 text-white">
         <div class="max-w-3xl">
           <!-- Badge -->
           <div class="inline-flex items-center space-x-2 bg-yellow-500/20 border border-yellow-500/50 rounded-full px-4 py-1 mb-8">

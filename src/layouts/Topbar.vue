@@ -115,19 +115,19 @@
     </router-link>
   </li>
   <li>
-    <router-link to="/documents/cabinet-decisions" 
+    <router-link to="/documents/legal-documents/cabinet-decisions" 
       class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-[#3e87d0] rounded-lg no-underline transition-colors">
       Cabinet decisions
     </router-link>
   </li>
   <li>
-    <router-link to="/documents/budget" 
+    <router-link to="/documents/legal-documents/budget"
       class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-[#3e87d0] rounded-lg no-underline transition-colors">
       Budget
     </router-link>
   </li>
   <li>
-    <router-link to="/documents/resolutions" 
+    <router-link to="/documents/legal-documents/resolutions" 
       class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-[#3e87d0] rounded-lg no-underline transition-colors">
       Resolutions
     </router-link>
@@ -140,12 +140,46 @@
               <div class="flex-1">
                 <h3 class="text-[#3e87d0] font-bold text-[15px] mb-4 px-2 uppercase tracking-wider">Public Documents</h3>
                 <ul class="space-y-1 list-none p-0">
-                  <li><router-link to="#" class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-[#3e87d0] rounded-lg no-underline transition-colors">Official Bullets</router-link></li>
-                  <li><router-link to="#" class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-[#3e87d0] rounded-lg no-underline transition-colors">Bulletin Contents</router-link></li>
-                  <li><router-link to="#" class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-[#3e87d0] rounded-lg no-underline transition-colors">Constitution</router-link></li>
-                  <li><router-link to="#" class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-[#3e87d0] rounded-lg no-underline transition-colors">Tax Exemptions</router-link></li>
-                  <li><router-link to="#" class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-[#3e87d0] rounded-lg no-underline transition-colors">Public Notices</router-link></li>
-                </ul>
+  <li>
+    <router-link 
+      to="/documents/legal-documents/official-bulletins"
+      class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-[#3e87d0] rounded-lg no-underline transition-colors">
+      Official Bullets
+    </router-link>
+  </li>
+
+  <li>
+    <router-link 
+      to="/documents/Publications/bulletins-contents"
+      class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-[#3e87d0] rounded-lg no-underline transition-colors">
+      Bulletin Contents
+    </router-link>
+  </li>
+
+  <li>
+    <router-link 
+      to="/documents/Publications/constitution"
+      class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-[#3e87d0] rounded-lg no-underline transition-colors">
+      Constitution
+    </router-link>
+  </li>
+
+  <li>
+    <router-link 
+      to="/documents/Publications/tax-exemption"
+      class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-[#3e87d0] rounded-lg no-underline transition-colors">
+      Tax Exemptions
+    </router-link>
+  </li>
+
+  <li>
+    <router-link 
+      to="/documents/Publications/public-notary"
+      class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-[#3e87d0] rounded-lg no-underline transition-colors">
+      Public Notices
+    </router-link>
+  </li>
+</ul>
               </div>
             </div>
           </li>
