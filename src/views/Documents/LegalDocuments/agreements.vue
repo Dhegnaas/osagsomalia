@@ -1,14 +1,14 @@
 <template>
     <div>
-        <agreements />
+        <Agreements />
     </div>
 </template>
 
 <script>
-import agreements from "@/components/Agreements.vue";
+import Agreements from "@/components/Agreements.vue";
     export default {
         components: {
-            agreements
+            Agreements
         }
     }
 </script>

@@ -4,7 +4,7 @@
     <Topbar />
 
     <!-- THIS grows -->
-    <main class="flex-1 w-full sm:px-6 lg:px-8">
+    <main class="flex-1 w-full"> 
       <router-view />
     </main>
 
