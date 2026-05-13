@@ -1,5 +1,8 @@
 import Home from "../views/Home/Home.vue";
 import About from "../views/About/About.vue";
+import AttorneyGeneral from "../views/About/AttorneyGeneral.vue";
+import Services from "../views/About/Services.vue";
+import Organizationalstructure from "../views/About/Organizationalstructure.vue";
 import Documents from "../views/Documents/LegalDocuments/LegalDocuments.vue";
 import agreements from "../views/Documents/LegalDocuments/agreements.vue";
 import LegalDocuments from "../views/Documents/LegalDocuments/LegalDocuments.vue";
@@ -9,8 +12,10 @@ import OfficialBulletins from "../components/Official-Bulletins.vue";
 import BulletinsContents from "../views/Documents/Publications/Bulletins-Contents.vue";
 import Constitution from "../views/Documents/Publications/Constitution.vue";
 import TaxExemption from "../views/Documents/Publications/TaxExemption.vue";
-import publicNotary from "../views/Documents/Publications/Public-Notary.vue";
+import PublicNotary from "../views/Documents/Publications/PublicNotary.vue";
 import Resolutions from "../views/Documents/LegalDocuments/Resolutions.vue";
+import Institutions from "../views/Institutions/Institutions.vue";
+import Trainings from "../views/Trainings/Trainings.vue";
 
 const routes = [
   {
@@ -22,6 +27,21 @@ const routes = [
     path: "/about",
     name: "About",
     component: About,
+  },
+  {
+    path: "/about/attorney-general",
+    name: "AttorneyGeneral",
+    component: AttorneyGeneral,
+  },
+  {
+    path: "/about/services",
+    name: "Services",
+    component: Services,
+  },
+  {
+    path: "/about/organizational-structure",
+    name: "OrganizationalStructure",
+    component: Organizationalstructure,
   },
   {
     path: "/documents/legal-documents",
@@ -69,10 +89,20 @@ const routes = [
     component: TaxExemption,
   },
   {
-    path: "/documents/Publications/public-notary",
+    path: "/documents/Publications/PublicNotary",
     name: "PublicNotary",
-    component: publicNotary,
-  }
+    component: PublicNotary,
+  },
+  {
+    path: "/institutions",
+    name: "Institutions",
+    component: Institutions,
+  },
+  {
+    path: "/trainings",
+    name: "Trainings",
+    component: Trainings,
+  },
 ];
 
 export default routes;
