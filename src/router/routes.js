@@ -16,6 +16,7 @@ import PublicNotary from "../views/Documents/Publications/PublicNotary.vue";
 import Resolutions from "../views/Documents/LegalDocuments/Resolutions.vue";
 import Institutions from "../views/Institutions/Institutions.vue";
 import Trainings from "../views/Trainings/Trainings.vue";
+import News from "../views/News/News.vue";
 
 const routes = [
   {
@@ -103,6 +104,11 @@ const routes = [
     name: "Trainings",
     component: Trainings,
   },
+  {
+    path: "/news",
+    name: "News",
+    component: News,
+  }
 ];
 
 export default routes;

@@ -1,39 +1,49 @@
 <template>
-  <div class="min-h-screen bg-[#f8fafc] py-16 px-4 font-sans">
+  <div class="min-h-screen bg-white py-16 px-4 font-sans">
+    <!-- Header Section -->
     <div class="text-center mb-16">
-      <h2 class="text-3xl font-bold text-[#1e3a8a] mb-2">{{ title }}</h2>
-      <div class="flex justify-center gap-1 mb-4">
-        <div class="h-1 w-8 bg-blue-500 rounded-full"></div>
-        <div class="h-1 w-8 bg-yellow-400 rounded-full"></div>
-        <div class="h-1 w-8 bg-green-700 rounded-full"></div>
+      <h2 class="text-[32px] font-extrabold text-[#3b6ea5] mb-2 tracking-tight">{{ title }}</h2>
+      <div class="flex justify-center gap-1.5 mb-6">
+        <div class="h-1 w-8 bg-[#4285f4]"></div>
+        <div class="h-1 w-8 bg-[#fbbc05]"></div>
+        <div class="h-1 w-8 bg-[#34a853]"></div>
       </div>
-      <p class="text-gray-500 text-sm max-w-2xl mx-auto">
+      <p class="text-gray-400 text-[15px] max-w-2xl mx-auto font-medium">
         {{ description }}
       </p>
     </div>
 
-    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-16 justify-items-center">
+    <!-- Grid Section -->
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-20 justify-items-center">
       <div 
         v-for="item in items" 
         :key="item.year"
-        class="flex flex-col items-center group cursor-pointer transition-all duration-300 transform hover:-translate-y-2"
+        class="flex flex-col items-center group cursor-pointer transition-transform duration-300 hover:scale-105"
       >
-        <div class="w-20 h-20 rounded-full bg-gradient-to-b from-[#4facfe] to-[#0061ff] flex items-center justify-center shadow-lg mb-5 relative overflow-hidden">
-          <svg class="w-10 h-10 text-white opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        <!-- Icon Circle with Exact Gradient from image_b091b1.jpg -->
+        <div class="w-[90px] h-[90px] rounded-full bg-gradient-to-b from-[#3a72a9] via-[#2d5c8a] to-[#1d3a31] flex items-center justify-center shadow-lg mb-5 relative">
+          <!-- Bold Calendar Icon -->
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 2V6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 2V6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 10H21" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <div class="absolute inset-0 rounded-full shadow-inner pointer-events-none"></div>
         </div>
 
-        <h3 class="text-2xl font-extrabold text-gray-700 mb-3 tracking-wide">
+        <!-- Year Text - More Bold -->
+        <h3 class="text-[32px] font-[900] text-[#444] mb-3 tracking-tighter">
           {{ item.year }}
         </h3>
 
-        <div class="bg-[#fbbf24] hover:bg-[#f59e0b] text-black text-[11px] font-bold px-4 py-1.5 rounded-full flex items-center gap-2 shadow-sm transition-colors">
-          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" />
+        <!-- Document Badge - Exact Yellow and Pill Shape -->
+        <div class="bg-[#ffbd14] text-[#222] px-4 py-1.5 rounded-full flex items-center gap-2 shadow-sm">
+          <!-- Simple File Icon -->
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+            <polyline points="13 2 13 9 20 9"></polyline>
           </svg>
-          {{ item.count }} Documents
+          <span class="text-[12px] font-bold">{{ item.count }} Documents</span>
         </div>
       </div>
     </div>
@@ -67,7 +77,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-/* Wixii dheeri ah oo CSS ah halkan geli, inkastoo Tailwind uu ku filan yahay */
-</style>

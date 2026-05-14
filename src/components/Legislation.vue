@@ -1,39 +1,49 @@
 <template>
-  <div class="min-h-screen bg-gray-50 py-12 px-4">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl font-bold text-blue-900 mb-2 tracking-tight">Legislation</h2>
-      <div class="flex justify-center mb-4">
-        <div class="h-1 w-8 bg-blue-500"></div>
-        <div class="h-1 w-8 bg-yellow-400"></div>
-        <div class="h-1 w-8 bg-green-600"></div>
+  <div class="max-w-6xl mx-auto p-10 font-sans text-center bg-white">
+    <!-- Header Section -->
+    <div class="mb-16">
+      <h1 class="text-3xl font-extrabold text-[#3b6ea5] mb-2 tracking-wide">Legislation</h1>
+      <div class="flex justify-center gap-1 mb-4">
+        <span class="w-8 h-1 bg-[#4285f4]"></span>
+        <span class="w-8 h-1 bg-[#fbbc05]"></span>
+        <span class="w-8 h-1 bg-[#34a853]"></span>
       </div>
-      <p class="text-gray-500 text-sm max-w-2xl mx-auto leading-relaxed">
+      <p class="text-gray-400 text-lg font-medium">
         Below you can find all the annual laws and regulations issued by the government.
       </p>
     </div>
 
-    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-16 gap-x-8">
+    <!-- Grid Section -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-16 gap-x-8">
       <div 
-        v-for="item in legislationData" 
-        :key="item.year"
-        class="flex flex-col items-center group cursor-pointer transition-transform duration-300 hover:-translate-y-2"
+        v-for="yearData in legislationYears" 
+        :key="yearData.year" 
+        class="flex flex-col items-center group cursor-pointer"
       >
-        <div class="relative mb-6">
-          <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-800 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-blue-200 transition-shadow">
-            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-          </div>
+        <!-- Icon Circle with Exact Gradient and Shadow from image_b0985a.jpg -->
+        <div class="w-24 h-24 rounded-full bg-gradient-to-b from-[#3a72a9] via-[#2d5c8a] to-[#1d3a31] flex items-center justify-center shadow-lg mb-5 transition-transform group-hover:scale-105">
+          <!-- Calendar Icon -->
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 2V6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 2V6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 10H21" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
 
-        <h3 class="text-2xl font-black text-gray-700 mb-3 tracking-wider">{{ item.year }}</h3>
+        <!-- Year Text -->
+        <h2 class="text-3xl font-black text-[#444] mb-3 tracking-tighter">
+          {{ yearData.year }}
+        </h2>
 
-        <div class="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-1.5 rounded-full flex items-center space-x-2 shadow-sm transition-colors">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414L13.586 3H9z" />
-            <path d="M3 8V7a1 1 0 011-1h2v10H5a2 2 0 01-2-2v-4z" />
+        <!-- Document Badge - Exact Shape and Color -->
+        <div class="bg-[#ffbd14] text-[#222] px-4 py-1.5 rounded-full flex items-center gap-2 shadow-sm">
+          <!-- File Icon -->
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+            <polyline points="13 2 13 9 20 9"></polyline>
           </svg>
-          <span class="text-xs font-bold uppercase tracking-tight">{{ item.docs }} Documents</span>
+          <span class="text-[12px] font-bold">{{ yearData.count }} Documents</span>
         </div>
       </div>
     </div>
@@ -42,25 +52,20 @@
 
 <script>
 export default {
-  name: 'LegislationGrid',
+  name: 'LegislationComponent',
   data() {
     return {
-      // Xogta sanadaha iyo dukumintiyada
-      legislationData: [
-        { year: 2026, docs: 5 },
-        { year: 2025, docs: 8 },
-        { year: 2024, docs: 14 },
-        { year: 2023, docs: 12 },
-        { year: 2020, docs: 12 },
-        { year: 2019, docs: 4 },
-        { year: 2018, docs: 2 },
-        { year: 2017, docs: 2 }
+      legislationYears: [
+        { year: '2026', count: 5 },
+        { year: '2025', count: 8 },
+        { year: '2024', count: 14 },
+        { year: '2023', count: 12 },
+        { year: '2020', count: 12 },
+        { year: '2019', count: 4 },
+        { year: '2018', count: 2 },
+        { year: '2017', count: 2 }
       ]
     }
   }
 }
 </script>
-
-<style scoped>
-/* Waxaad halkan ku dari kartaa font gaar ah haddii aad u baahato */
-</style>
