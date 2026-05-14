@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import publicNotary from "@/components/public-notary.vue";
+import publicNotary from "@/components/PublicNotary.vue";
     export default {
         components: {
             publicNotary
