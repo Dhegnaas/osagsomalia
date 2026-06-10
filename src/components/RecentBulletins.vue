@@ -54,11 +54,18 @@
               
               <!-- Date Column -->
               <td class="px-6 py-6 whitespace-nowrap">
-                <div class="text-[12px] text-slate-500 font-bold text-center uppercase leading-tight">
-                  {{ bulletin.date.split(' ')[0] }} <br/>
-                  <span class="font-normal">{{ bulletin.date.split(' ')[1] }}</span>
-                </div>
-              </td>
+  <div class="text-[12px] text-slate-500 font-bold text-center uppercase leading-tight">
+    {{
+      new Date(bulletin.date_published).toLocaleString('en-US', {
+        month: 'short'
+      })
+    }}
+    <br />
+    <span class="font-normal">
+      {{ new Date(bulletin.date_published).getFullYear() }}
+    </span>
+  </div>
+</td>
               
               <!-- Actions Column -->
               <td class="px-6 py-6">
@@ -71,7 +78,11 @@
                     </svg>
                   </button>
                   <!-- Download Button -->
-                  <button title="Download" class="p-2.5 bg-[#fff2cc] text-yellow-600 rounded-lg hover:bg-yellow-200 transition-all shadow-sm">
+                  <button
+                        title="Download"
+                        class="p-2.5 bg-[#fff2cc] text-yellow-600 rounded-lg hover:bg-yellow-200 transition-all shadow-sm"
+                        @click="window.open(`http://127.0.0.1:8000/storage/${bulletin.file_path}`, '_blank')"
+                      >
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
@@ -90,53 +101,32 @@
         </svg>
         View More
       </button>
-
-    </div>
+      </div>
+         
+      
   </section>
 </template>
 
 <script>
-export default {
-  name: 'RecentBulletins',
-  data() {
-    return {
-      bulletins: [
-        {
-          number: "XEER LR.194",
-          subject: "Qaraarla Burinta iyo Baabi'inta dhammaan heshiisyada iyo is-afgaradka u dhaxeeyay heerka maamul ee kala duwan ee Soomaaliya iyo Isutagga Imaaraadkaa Carabta.pdf",
-          organization: "Office of Prime Minister",
-          date: "Apr 2026"
-        },
-        {
-          number: "XEER LR.193",
-          subject: "Xeer-nidaamiyaha Sharciga Dhowrista Xogta Dadwaynaha",
-          organization: "Wasaaradda Isgaarsiinta & Teknolojiyadda",
-          date: "Apr 2026"
-        },
-        {
-          number: "XEER LR.192",
-          subject: "XEERKA DHISMAHA MACHADKA SOOMAALIYEED EE BADAHA",
-          organization: "Wasaaradda Kalluumeysiga & Kheyraadka Badda",
-          date: "Apr 2026"
-        },
-        {
-          number: "XEER LR.191",
-          subject: "Xeer-nidaamiyaha buugga badmaaxa Soomaaliyeed",
-          organization: "Wasaaradda Dekedaha & Gaadiidka Badda",
-          date: "Apr 2026"
-        },
-        {
-          number: "XEER LR.190",
-          subject: "XEER-NIDAAMIYAHA SHIRKADAHA ADEEGYADA SHARCI",
-          organization: "Wasaaradda Caddaaladda & Arrimaha Dastuurka",
-          date: "Apr 2026"
-        }
-      ]
-    }
-  }
-}
-</script>
+import { onMounted, computed } from "vue";
+import { useBulletinStore } from "@/stores/bulletinStore";
 
-<style scoped>
-/* Wixii habayn gaar ah halkan geli */
-</style>
+export default {
+  name: "OfficialBulletinsTable",
+
+  setup() {
+    const bulletinStore = useBulletinStore();
+
+    onMounted(() => {
+      bulletinStore.fetchBulletins();
+    });
+
+    const bulletins = computed(() => bulletinStore.bulletins);
+
+    return {
+      bulletinStore,
+      bulletins,
+    };
+  },
+};
+</script>
