@@ -62,7 +62,7 @@
                 {{ item.subject }}
               </td>
               <td class="p-4 text-xs text-gray-600 italic">
-                {{ item.org }}
+                {{ item.organization }}
               </td>
               <td class="p-4 text-sm text-gray-600 whitespace-nowrap">
                 {{ item.date }}
@@ -87,41 +87,25 @@
 </template>
 
 <script>
+import { onMounted, computed } from "vue";
+import { useBulletinStore } from "@/stores/bulletinStore";
+
 export default {
-  name: 'OfficialBulletinsTable',
-  data() {
+  name: "OfficialBulletinsTable",
+
+  setup() {
+    const bulletinStore = useBulletinStore();
+
+    onMounted(() => {
+      bulletinStore.fetchBulletins();
+    });
+
+    const bulletins = computed(() => bulletinStore.bulletins);
+
     return {
-      bulletins: [
-        {
-          type: 'XEER',
-          number: 'LR.193',
-          subject: 'Xeer-nidaamiyaha Sharciga Dhowrista Xogta Dadwaynaha',
-          org: 'Wasaaradda Isgaarsiinta & Teknolojiyadda',
-          date: 'Apr 2026'
-        },
-        {
-          type: 'XEER',
-          number: 'LR.544',
-          subject: 'SIYAASADDA QARAN EE NAAFADA SOOMAALIYEED',
-          org: 'Wasaaradda Haweenka iyo Hormatinta Xuquuqul Aadanaha',
-          date: 'Apr 2026'
-        },
-        {
-          type: 'XEER',
-          number: 'LR.192',
-          subject: 'XEERKA DHISMAHA MACHADKA SOOMAALIYEED EE BADAHA',
-          org: 'Wasaaradda Kalluumeysiga & Kheyraadka Badda',
-          date: 'Apr 2026'
-        },
-        {
-          type: 'SHARCI',
-          number: 'LR.46',
-          subject: 'sharciga Dad-dhigista iyo Tirakoobka Xaaladaha Madaniga',
-          org: 'Wasaaradda Arrimaha Gudaha, Federaalka & Dib u Heshiisiinta',
-          date: 'Apr 2026'
-        }
-      ]
-    }
-  }
-}
+      bulletinStore,
+      bulletins,
+    };
+  },
+};
 </script>

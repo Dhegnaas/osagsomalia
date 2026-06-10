@@ -69,43 +69,26 @@
     </div>
   </section>
 </template>
-
 <script>
+import { onMounted, computed } from 'vue'
+import { useArticleStore } from '@/stores/articleStore'
+
 export default {
   name: 'LatestNews',
-  data() {
+
+  setup() {
+    const articleStore = useArticleStore()
+
+    onMounted(() => {
+      articleStore.fetchArticles()
+    })
+
+    const newsPosts = computed(() => articleStore.articles)
+
     return {
-      newsPosts: [
-        {
-          title: "Joojin Xad-gudubka iyo Bur-burin lagu haayo Dhulka Jaamacadda JUS",
-          excerpt: "Xafiiska Garyaqaanka Guud ee Dawladda oo tixraacaya Warqadda Ref:JUS/MG/GJ/4068/2026 ee ku taariikhaysan 07/01/2026...",
-          day: "11",
-          month: "JAN",
-          category: "NOTICE",
-          image: "/news1.jpg" // Bedel sawirkan
-        },
-        {
-          title: "Joojin Dhismo Sharci darro ah iyo ku Tagri-fal Dhul Dawladeed",
-          excerpt: "tahay MGB/DML/440/2024, ee kahor furan Maxkamadda Gobolka Banaadir, kana dhaxeeysa dhinacyada kale ah: Wabillaahi Towfi...",
-          day: "14",
-          month: "OCT",
-          category: "NEWS",
-          image: "/news2.jpg" // Bedel sawirkan
-        },
-        {
-          title: "Amar Xayiraad iyo Joojin Dhaqdhaqaaq Dhismo",
-          excerpt: "Maxkamadda Gobolka Banaadir, oo ka jawaabeysa codsiga Xafiiska Garyaqaanka Guud ee Dawladda, ayaa xayiraad saartay dhul ...",
-          day: "14",
-          month: "OCT",
-          category: "NEWS",
-          image: "/news3.jpg" // Bedel sawirkan
-        }
-      ]
+      articleStore,
+      newsPosts
     }
   }
 }
 </script>
-
-<style scoped>
-/* Wixii styling dheeraad ah halkan geli */
-</style>

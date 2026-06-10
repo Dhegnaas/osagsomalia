@@ -30,17 +30,17 @@
     <!-- News Cards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
       <div 
-        v-for="(item, index) in newsItems" 
+        v-for="(post, index) in newsItems" 
         :key="index" 
         class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col h-full border border-gray-100"
       >
         <!-- Card Image & Date Badge -->
         <div class="relative h-56 overflow-hidden bg-gray-100">
-          <img :src="item.image" :alt="item.title" class="w-full h-full object-cover">
+         <img :src="post.image" :alt="post.title" class="w-full h-full object-cover" />
           <!-- Date Badge -->
           <div class="absolute top-4 right-4 bg-gradient-to-b from-blue-400 to-green-900 text-white p-2 rounded-lg text-center min-w-[55px] shadow-lg">
-            <div class="text-xl font-bold leading-none">{{ item.day }}</div>
-            <div class="text-[10px] font-bold uppercase tracking-tighter">{{ item.month }}</div>
+            <div class="text-xl font-bold leading-none">{{ post.day }}</div>
+            <div class="text-[10px] font-bold uppercase tracking-tighter">{{ post.month }}</div>
           </div>
         </div>
 
@@ -48,19 +48,19 @@
         <div class="p-6 flex flex-col flex-grow">
           <div class="mb-4">
             <span 
-              :class="item.tag === 'Notice' ? 'bg-yellow-400' : 'bg-yellow-500'" 
+              :class="post.tag === 'Notice' ? 'bg-yellow-400' : 'bg-yellow-500'" 
               class="text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
             >
-              {{ item.tag }}
+              {{ post.tag }}
             </span>
           </div>
           
           <h2 class="text-xl font-extrabold text-gray-800 mb-4 leading-tight group-hover:text-blue-700 transition-colors">
-            {{ item.title }}
+            {{ post.title }}
           </h2>
           
           <p class="text-gray-500 text-sm mb-6 line-clamp-3 leading-relaxed">
-            {{ item.description }}
+            {{ post.description }}
           </p>
           
           <div class="mt-auto">
@@ -76,28 +76,24 @@
 </template>
 
 <script>
+import { onMounted, computed } from 'vue'
+import { useArticleStore } from '@/stores/articleStore'
+
 export default {
-  name: 'NewsUpdates',
-  data() {
+  name: 'LatestNews',
+
+  setup() {
+    const articleStore = useArticleStore()
+
+    onMounted(() => {
+      articleStore.fetchArticles()
+    })
+
+    const newsItems = computed(() => articleStore.articles)
+
     return {
-      newsItems: [
-        {
-          tag: 'Notice',
-          day: '11',
-          month: 'JAN',
-          image: '/path/to/image1.jpg', // Beddel meeshaan
-          title: 'Joojin Xad-gudubka iyo Bur-burin lagu haayo Dhulka Jaamacadda JUS',
-          description: 'Xafiiska Garyaqaanka Guud ee Dawladda, oo tixraacaya Warqadda Ref:JUS/MG/GJ/4068/2026, ee ku taariikhaysan 07/01/2026, kana soo baxay Jaamacadda Umma...'
-        },
-        {
-          tag: 'News',
-          day: '14',
-          month: 'OCT',
-          image: '/path/to/image2.jpg', // Beddel meeshaan
-          title: 'Joojin Dhismo Sharci darro ah iyo ku Tagri-fal Dhul Dawladeed',
-          description: 'tahay MGB/DML/440/2024, ee kahor furan Maxkamadda Gobolka Banaadir, kana dhaxeeya dhinacyada kale ah: Wabillaahi Towfiiq 1. Taliska Ciidanka Xoogga...'
-        }
-      ]
+      articleStore,
+      newsItems
     }
   }
 }
