@@ -71,18 +71,22 @@
               <td class="px-6 py-6">
                 <div class="flex justify-center gap-3">
                   <!-- View Button -->
-                  <button title="View" class="p-2.5 bg-[#d2e3fc] text-blue-600 rounded-lg hover:bg-blue-200 transition-all shadow-sm">
+                   <button
+    title="View"
+    class="p-2.5 bg-[#d2e3fc] text-blue-600 rounded-lg hover:bg-blue-200 transition-all shadow-sm"
+    @click="viewFile(bulletin.file_path)"
+  >
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
                   </button>
                   <!-- Download Button -->
-                  <button
-                        title="Download"
-                        class="p-2.5 bg-[#fff2cc] text-yellow-600 rounded-lg hover:bg-yellow-200 transition-all shadow-sm"
-                        @click="window.open(`http://127.0.0.1:8000/storage/${bulletin.file_path}`, '_blank')"
-                      >
+                   <button
+    title="Download"
+    class="p-2.5 bg-[#fff2cc] text-yellow-600 rounded-lg hover:bg-yellow-200 transition-all shadow-sm"
+    @click="downloadFile(bulletin.file_path)"
+  >
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
@@ -123,9 +127,27 @@ export default {
 
     const bulletins = computed(() => bulletinStore.bulletins);
 
+    // ✅ View
+const viewFile = (filePath) => {
+  if (!filePath) return;
+  window.open(`http://localhost:8000/storage/${filePath}`, "_blank");
+};
+
+// ✅ Download - <a> tag ayaa download-ka saxda ah u qabta
+const downloadFile = (filePath) => {
+  if (!filePath) return;
+  const url = `http://localhost:8000/storage/${filePath}`;
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";      // browser-ka ku fur
+  link.rel = "noopener";
+  link.click();
+};
+
     return {
-      bulletinStore,
       bulletins,
+      viewFile,
+      downloadFile,
     };
   },
 };
